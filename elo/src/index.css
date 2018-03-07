@@ -1,5 +1,35 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  margin: 20px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+p {
+  font-family: Roboto;
+}
+
+h1 {
+  text-align: center;
+}
+
+div .right {
+ float: right;
+  width: 50%;
+  text-align: center;
+}
+
+div .left {
+  float: left;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.center {
+  text-align: center;
+  float: center;
 }
