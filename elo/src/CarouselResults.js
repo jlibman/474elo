@@ -4,11 +4,16 @@ import React, { Component } from 'react';
 import './App.css';
 
 class CarouselResults extends Component {
+    componentDidMount() {
+        var people = this.props.people;
+        var index = this.props.index;
+        // console.log("eople" + people);
+    }
   render() {
     return (
         <div>
             my score: {this.props.scoreA}
-            their score:{this.props.scoreB}
+            their score:{this.props.otherScore}
         </div>
     );
   }

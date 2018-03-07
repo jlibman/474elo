@@ -10,8 +10,6 @@ class ControlledCarousel extends React.Component {
     super(props, context);
   }
 
-
-
   render() {
     // const { index, direction } = this.state;
     const index = this.props.index;
@@ -32,7 +30,7 @@ class ControlledCarousel extends React.Component {
         </Carousel.Item>
 
         <Carousel.Item>
-        <img width={900} height={500} alt="900x500" src={meme} />
+        <img width={900} height={500} alt="900x500" src={ischool} />
           <Carousel.Caption>
             <h3>Second slide label</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -41,6 +39,14 @@ class ControlledCarousel extends React.Component {
         
         <Carousel.Item>
         <img width={900} height={500} alt="900x500" src={meme} />
+          <Carousel.Caption>
+            <h3>Third slide label</h3>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+        <Carousel.Item>
+        <img width={900} height={500} alt="900x500" src={ischool} />
           <Carousel.Caption>
             <h3>Third slide label</h3>
             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
