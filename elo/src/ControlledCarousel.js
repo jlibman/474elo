@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Carousel} from 'react-bootstrap'
-import ischool from './img/ischool-logo.png'
-import meme from './img/meme.png'
+import avatar from './img/facebook-avatar.jpg'
 import './App.css';
 
 
@@ -16,40 +15,41 @@ class ControlledCarousel extends React.Component {
     const direction = this.props.direction;
 
     return (
-      <Carousel
+      <Carousel 
+        className="controlled-carousel"
         activeIndex={index}
         direction={direction}
         onSelect={this.props.onClick}>
 
         <Carousel.Item>
-          <img width={900} height={500} alt="900x500" src={meme} />
+          <img width={700} height={441} src={avatar} />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h2 bsStyle="h2">Person A</h2>
+            <p>Score: {this.props.otherScore}</p>
           </Carousel.Caption>
         </Carousel.Item>
 
         <Carousel.Item>
-        <img width={900} height={500} alt="900x500" src={ischool} />
+        <img width={700} height={441} src={avatar} />
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h2 bsStyle="h2">Person B</h2>
+            <p>Score: {this.props.otherScore}</p>
           </Carousel.Caption>
         </Carousel.Item>
         
         <Carousel.Item>
-        <img width={900} height={500} alt="900x500" src={meme} />
+        <img width={700} height={441} src={avatar} />
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h2 bsStyle="h2">Person C </h2>
+            <p>Score: {this.props.otherScore}</p>
           </Carousel.Caption>
         </Carousel.Item>
 
         <Carousel.Item>
-        <img width={900} height={500} alt="900x500" src={ischool} />
+        <img width={700} height={441} src={avatar} />
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h2 bsStyle="h2">Person D</h2>
+            <p>Score: {this.props.otherScore}</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
