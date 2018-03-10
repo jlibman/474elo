@@ -4,7 +4,7 @@ import CarouselResults from './CarouselResults';
 import ischool from './img/ischool-logo.png'
 import './App.css';
 import Description from './Description'
-
+import Intro from './Intro'
 
 class App extends Component {
   constructor(props, context) {
@@ -45,6 +45,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+            <Intro />
         <h1 bsStyle="h1">Tinder Example</h1>
         <ControlledCarousel 
           onClick={this.handleSelect}
@@ -62,6 +63,8 @@ class App extends Component {
           otherScore={this.state.people[this.state.index]}
         />
       </div>
+
+
     );
   }
 }
