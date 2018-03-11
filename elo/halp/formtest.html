@@ -5,15 +5,6 @@
             <link rel="stylesheet" href="App.css">
             <link rel="stylesheet" href="index.css">
         <meta charset="utf-8">
-
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-        <link rel="stylesheet" href="App.css">
-        <link rel="stylesheet" href="index.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <title>Elo Rating System</title>
         <style>
             .axis path,
             .axis line {
@@ -55,7 +46,70 @@
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="http://d3js.org/d3.v3.min.js"></script>
     </head>
-<body>
+
+    <body>
+  
+        <div class = "center"><h1> The Elo Rating System Explained</h1>
+        <h6> By: Jessica Libman, Joycie Yu, and Zhanna Voloshina</h4></div>
+
+<div class = "row">
+     <div class = "left">
+            <br/>
+            <br/>
+            <br/>
+         <h2>Background</h2>
+        <p> The algorithm was originally created by Arpad Elo as a way to accurately evaluate the skills of chess players. 
+            Essentially, the algorithm allows you to rank players based on their performance in "matches" against opponents, applicable
+            to many different contexts.
+            This rating system is now used beyond just chess tournaments.
+            It is used in professional sports tournaments, League of Legends, and Tinder. It's likely you have encountered it's use
+            without even knowing it! However, each organization has a slightly different implementation of it, but the core idea 
+            behind it remains the same.
+        </p>
+        <br/>
+        <br/>
+        <br/>
+    </div>
+
+    <div class = "right">
+        <br/>
+        <br/>
+        <br/>
+        <img src="http://www.chessmaniac.com/wp-content/uploads/2012/12/elo.jpg" alt="" width="197" height="256">   
+    </div>
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
+    <div class = "left">
+            <h2> How it Works</h2>
+            <p> 
+                A user's score is determined from the ratings of their opponents, and their results based on wins and losses.
+                The equation on the right demonstrates the <b>expected score</b> of both Player A and Player B if they were to
+                compete against each other.             
+                Additionally, Elo includes a mechanism to adjust scores when the results are not as expected.
+           </p>
+        </div>
+    <div class = "right">
+        <br/>
+        <br/>
+        <img class="aligncenter" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/51346e1c65f857c0025647173ae48ddac904adcb" alt="Elo rating, elo rating algorithm, elo rating for chess, facebook algorithm, facemash algorithm, Elo rating system" width="201" height="48">
+        <br/>
+        <img class="aligncenter" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4b340e7d15e61ee7d90f428dcf7f4b3c049d89ff" alt="Elo rating, elo rating algorithm, elo rating for chess, facebook algorithm, facemash algorithm, Elo rating system" width="201" height="48">   
+        <br/>
+    </div>
+
+    <div class = "left">
+            <br/>
+            <br/>
+            <br/>
+            <h2> Elo in Context </h2>
+            <p> Tinder uses the Elo Rating System to customize their application to each of their users. 
+            Each user is initially shown other users at around the same rating because
+            they believe that each of these other users are good potentially match due to comparable scores. Tinder's matching algorithm is 
+            much more complex than just Elo, and includes more factors, but is a good way to understand the basis of the Elo Rating System.
+           </p>
+        </div>
+</div><body>
         
               <div class = "center"><h1> The Elo Rating System Explained</h1>
               <h6> By: Jessica Libman, Joycie Yu, and Zhanna Voloshina</h4></div>
@@ -110,13 +164,13 @@
                   <br/>
                   <br/>
                   <br/>
-                  <h2> Elo in Games </h2>
-                  <p> Explore how Elo works in general through our interactive visualization. Choose an Elo Score for you and your opponent between zero 
-                    and 2000, and decide if you lose, win, or tie a game. You can observe how the Elo Algorithm changes both your and your opponent's score after a match.
-                    This is the general idea behind Elo, your score goes up more if you beat an opponent with a higher Elo score than you. 
-                  </p>
+                  <h2> Elo in Context </h2>
+                  <p> Tinder uses the Elo Rating System to customize their application to each of their users. 
+                  Each user is initially shown other users at around the same rating because
+                  they believe that each of these other users are good potentially match due to comparable scores. Tinder's matching algorithm is 
+                  much more complex than just Elo, and includes more factors, but is a good way to understand the basis of the Elo Rating System.
+                 </p>
               </div>
-
       </div>
         <div id="chart"></div>
         <div>
@@ -129,25 +183,10 @@
                 <input type="submit" />
             </form>
         </div>
-        
-        <div class = "row">
-        <div class = "left">
-            <br/>
-            <br/>
-            <br/>
-            <h2> Elo in Tinder </h2>
-            <p> Tinder uses the Elo Rating System to customize their application to each of their users. 
-            Each user is initially shown other users at around the same rating because
-            they believe that each of these other users are good potentially match due to comparable scores. Tinder's matching algorithm is 
-            much more complex than just Elo, and includes more factors, but is a good way to understand the basis of the Elo Rating System.
-           </p>
-        </div>
-</div>
-      <!-- </div> -->
         <!--d3 code-->
         <script>
 
-            var data = [{"scenario":"Your Initial Score","quantity":1800},{"scenario":"Your New Score","quantity":2000},{"scenario":"Opponent Old Score","quantity":300},{"scenario":"Opponent New Score","quantity":200}];
+            var data = [{"scenario":"Your Initial Score","quantity":2000},{"scenario":"Your New Score","quantity":1800},{"scenario":"Opponent Old Score","quantity":300},{"scenario":"Opponent New Score","quantity":200}];
             var margin = {top: 20, right: 20, bottom: 30, left: 40},
                 width = 960 - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
@@ -277,110 +316,5 @@
                 return false;
             });
         </script>
-
-
-
- </div>
-  <h2>Explore tinder!</h2>
-  <p>Swipe left to simulate someone else swiping "NO" on your profile. Swipe right to simulate someone else swiping "YES" on your </p>
-  <!-- <a href="#" class="arrow left " onClick="SwipesLeft()"></a> -->
-  <button class="arrow left" onClick="SwipesLeft()">
-      <i class="material-icons">keyboard_arrow_left</i>
-  </button>
-  <img src='../src/img/facebook-avatar.jpg' /> 
-  <p>Person: </p>
-  <p id="tinder-img-label">0</p>
-  <!-- <a href="#" class="arrow right" onClick="SwipesRight()"></a> -->
-
-<button class="arrow right" onClick="SwipesRight()">
-  <i class="material-icons">keyboard_arrow_right</i>
-  </button>
-  <p>my current score:</p>
-  <p id="my-current-score"></p>
-  <p>other current score:</p>
-  <p id="other-current-score"></p>
-  
-  <div id="tinder"></div>
-</div> 
-
- <script>
-  
-  const historyArray = [
-    { x: 80, y: 30 }
-  ]
-  const otherPeople = [
-        { x: 0, y: 30 },
-        { x: 50, y: 20 },
-        { x: 100, y: 40 },
-        { x: 150, y: 80 },
-        { x: 20, y: 90 },
-        { x: 50, y: 80 },
-        { x: 200, y: 95 }
-      ]
-
-  var imgIndex = 0;
-  var imgLabel = document.getElementById("tinder-img-label");
-  var myCurr = 100;
-  var left = true;
-  // var historyOther = [];
-  // var historyMine = [];
-  // console.log(historyArray[1].x)
-
-  document.getElementById("my-current-score").innerHTML = myCurr;
-  document.getElementById("other-current-score").innerHTML = otherPeople[imgIndex].y;
-  
-  function SwipesLeft() {
-    left = true;
-    if(imgIndex == 0){
-      imgIndex = Object.size(otherPeople);
-    } else {
-      imgIndex--;
-    }
-    imgLabel.innerHTML = imgIndex;
-    // historyOther.push(historyArray[imgIndex]);
-    // historyMine.push(calculated);
-    //  imgLabel.innerHTML = imgIndex;
-    // document.getElementById("my-current-score").innerHTML = myCurr;
-    // document.getElementById("other-current-score").innerHTML = otherPeople[imgIndex].y;
-    calculateChange();
-  }
-
-  function SwipesRight() {
-    left = false;
-    if(imgIndex == Object.size(otherPeople)){
-      imgIndex = 0;
-    } else {
-      imgIndex++;
-    }
-    imgLabel.innerHTML = imgIndex;
-    // historyOther.push(historyArray[imgIndex]);
-    // historyMine.push(calculated);
-    // imgIndex = Object.size(historyArray);
-    // document.getElementById("my-current-score").innerHTML = myCurr;
-    // document.getElementById("other-current-score").innerHTML = otherPeople[imgIndex].y;
-    calculateChange();
-  }
-
-  function calculateChange() {
-    console.log(imgIndex)
-    if(left) {
-      myCurr =  myCurr - otherPeople[imgIndex].y * 0.05 ;
-    } else {
-      myCurr =  myCurr + otherPeople[imgIndex].y * 0.05 ;
-    }
-
-    document.getElementById("my-current-score").innerHTML = myCurr;
-    document.getElementById("other-current-score").innerHTML = otherPeople[imgIndex].y;
-  }
-
-  Object.size = function(obj) {
-    var size = 0, key;
-    for (key in obj) {
-        if (obj.hasOwnProperty(key)) size++;
-    }
-    return size;
-};
-
-</script>
     </body>
 </html>
