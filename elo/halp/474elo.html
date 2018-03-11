@@ -149,7 +149,7 @@
               <button class="arrow right" onClick="SwipesRight()">
                 <i class="material-icons">keyboard_arrow_right</i>
               </button>
-              <img class="tinder-img" src='../src/img/facebook-avatar.jpg' /> 
+              <img id="tinder-img" src='../src/img/facebook-avatar.jpg' /> 
 
               <p>Person: </p>
               <p id="tinder-img-label">0</p>
@@ -236,16 +236,11 @@
         <script type="text/javascript">
 
         function getNewRating(myRating, opponentRating, myGameResult) {
-            console.log(myGameResult)
-            console.log(Number(myRating) + Number(getRatingDelta(myRating, opponentRating, myGameResult)))
-            console.log("Done")
             return (Number(myRating) + Number(getRatingDelta(myRating, opponentRating, myGameResult)))
         }
 
         function getRatingDelta(myRating, opponentRating, myGameResult) {
             var myChanceToWin = 1 / ( 1 + Math.pow(10, (Number(opponentRating) - Number(myRating)) / 400))
-            console.log(Math.round(32 * (Number(myGameResult) - Number(myChanceToWin))));
-            console.log("DeltaDone");
             return (Math.round(32 * (Number(myGameResult) - Number(myChanceToWin))))
         }
 
@@ -353,7 +348,6 @@
   }
 
   function calculateChange() {
-    console.log(imgIndex)
     if(left) {
       myCurr =  myCurr - otherPeople[imgIndex].y * 0.05 ;
     } else {

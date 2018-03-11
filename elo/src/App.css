@@ -59,6 +59,12 @@ button {
   outline:0;
 }
 
-.arrow {
+.arrow, .arrow-left {
   display: inline-block;
+  margin-left: auto;
+  margin-right:auto;
+}
+
+img#tinder-img {
+  width: 531px;
 }
