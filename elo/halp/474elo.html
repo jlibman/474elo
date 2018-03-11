@@ -131,18 +131,37 @@
         </div>
         
         <div class = "row">
-        <div class = "left">
-            <br/>
-            <br/>
-            <br/>
-            <h2> Elo in Tinder </h2>
-            <p> Tinder uses the Elo Rating System to customize their application to each of their users. 
-            Each user is initially shown other users at around the same rating because
-            they believe that each of these other users are good potentially match due to comparable scores. Tinder's matching algorithm is 
-            much more complex than just Elo, and includes more factors, but is a good way to understand the basis of the Elo Rating System.
-           </p>
+          <div class = "left">
+              <br/>
+              <br/>
+              <br/>
+              <h2> Elo in Tinder </h2>
+              <p> Tinder uses the Elo Rating System to customize their application to each of their users. 
+              Each user is initially shown other users at around the same rating because
+              they believe that each of these other users are good potentially match due to comparable scores. Tinder's matching algorithm is 
+              much more complex than just Elo, and includes more factors, but is a good way to understand the basis of the Elo Rating System.
+              </p>
+              <p>Swipe left to simulate someone else swiping "NO" on your profile. Swipe right to simulate someone else swiping "YES" on your </p>
+              <!-- <a href="#" class="arrow left " onClick="SwipesLeft()"></a> -->
+              <button class="arrow left" onClick="SwipesLeft()">
+                  <i class="material-icons">keyboard_arrow_left</i>
+              </button>
+              <button class="arrow right" onClick="SwipesRight()">
+                <i class="material-icons">keyboard_arrow_right</i>
+              </button>
+              <img class="tinder-img" src='../src/img/facebook-avatar.jpg' /> 
+
+              <p>Person: </p>
+              <p id="tinder-img-label">0</p>
+              <!-- <a href="#" class="arrow right" onClick="SwipesRight()"></a> -->
+            
+              <p>my current score:</p>
+              <p id="my-current-score"></p>
+              <p>other current score:</p>
+              <p id="other-current-score"></p>
+          </div> 
         </div>
-</div>
+    </div>
       <!-- </div> -->
         <!--d3 code-->
         <script>
@@ -276,58 +295,30 @@
 
                 return false;
             });
-        </script>
-
-
-
- </div>
-  <h2>Explore tinder!</h2>
-  <p>Swipe left to simulate someone else swiping "NO" on your profile. Swipe right to simulate someone else swiping "YES" on your </p>
-  <!-- <a href="#" class="arrow left " onClick="SwipesLeft()"></a> -->
-  <button class="arrow left" onClick="SwipesLeft()">
-      <i class="material-icons">keyboard_arrow_left</i>
-  </button>
-  <img src='../src/img/facebook-avatar.jpg' /> 
-  <p>Person: </p>
-  <p id="tinder-img-label">0</p>
-  <!-- <a href="#" class="arrow right" onClick="SwipesRight()"></a> -->
-
-<button class="arrow right" onClick="SwipesRight()">
-  <i class="material-icons">keyboard_arrow_right</i>
-  </button>
-  <p>my current score:</p>
-  <p id="my-current-score"></p>
-  <p>other current score:</p>
-  <p id="other-current-score"></p>
   
-  <div id="tinder"></div>
-</div> 
-
- <script>
-  
-  const historyArray = [
-    { x: 80, y: 30 }
-  ]
-  const otherPeople = [
-        { x: 0, y: 30 },
-        { x: 50, y: 20 },
-        { x: 100, y: 40 },
-        { x: 150, y: 80 },
-        { x: 20, y: 90 },
-        { x: 50, y: 80 },
-        { x: 200, y: 95 }
+      const historyArray = [
+        { x: 80, y: 30 }
       ]
+      const otherPeople = [
+            { x: 0, y: 30 },
+            { x: 50, y: 20 },
+            { x: 100, y: 40 },
+            { x: 150, y: 80 },
+            { x: 20, y: 90 },
+            { x: 50, y: 80 },
+            { x: 200, y: 95 }
+          ]
 
-  var imgIndex = 0;
-  var imgLabel = document.getElementById("tinder-img-label");
-  var myCurr = 100;
-  var left = true;
-  // var historyOther = [];
-  // var historyMine = [];
-  // console.log(historyArray[1].x)
+      var imgIndex = 0;
+      var imgLabel = document.getElementById("tinder-img-label");
+      var myCurr = 100;
+      var left = true;
+      // var historyOther = [];
+      // var historyMine = [];
+      // console.log(historyArray[1].x)
 
-  document.getElementById("my-current-score").innerHTML = myCurr;
-  document.getElementById("other-current-score").innerHTML = otherPeople[imgIndex].y;
+    document.getElementById("my-current-score").innerHTML = myCurr;
+    document.getElementById("other-current-score").innerHTML = otherPeople[imgIndex].y;
   
   function SwipesLeft() {
     left = true;
@@ -382,5 +373,5 @@
 };
 
 </script>
-    </body>
+</body>
 </html>
