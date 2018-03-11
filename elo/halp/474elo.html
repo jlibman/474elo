@@ -52,6 +52,7 @@
                 min-width: 531px;
             }
         </style>
+        
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="http://d3js.org/d3.v3.min.js"></script>
     </head>
@@ -116,6 +117,7 @@
               they believe that each of these other users are good potentially match due to comparable scores. Tinder's matching algorithm is 
               much more complex than just Elo, and includes more factors, but is a good way to understand the basis of the Elo Rating System.
               </p>
+              <br />
               <p>Swipe left to simulate someone else swiping "NO" on your profile. Swipe right to simulate someone else swiping "YES" on your </p>
               <!-- <a href="#" class="arrow left " onClick="SwipesLeft()"></a> -->
               <button class="arrow left" onClick="SwipesLeft()">
@@ -124,16 +126,19 @@
               <button class="arrow right" onClick="SwipesRight()">
                 <i class="material-icons">keyboard_arrow_right</i>
               </button>
-              <img id="tinder-img" src='../src/img/facebook-avatar.jpg' /> 
+              <img class="tinder-img" src='../src/img/facebook-avatar.jpg' /> 
 
-              <p>Person: </p>
-              <p id="tinder-img-label">0</p>
+              <p class="tinder-info">Person: </p>
+              <p class="tinder-info" id="tinder-img-label">0</p>
+              <br/>
               <!-- <a href="#" class="arrow right" onClick="SwipesRight()"></a> -->
             
-              <p>my current score:</p>
-              <p id="my-current-score"></p>
-              <p>other current score:</p>
-              <p id="other-current-score"></p>
+              <p class="tinder-info">My current score:</p>
+              <p class="tinder-info" id="my-current-score"></p>
+              <br/>
+              
+              <p class="tinder-info">Other current score:</p>
+              <p class="tinder-info" id="other-current-score"></p>
           </div> 
         </div>
     </div>
@@ -324,11 +329,6 @@
       imgIndex--;
     }
     imgLabel.innerHTML = imgIndex;
-    // historyOther.push(historyArray[imgIndex]);
-    // historyMine.push(calculated);
-    //  imgLabel.innerHTML = imgIndex;
-    // document.getElementById("my-current-score").innerHTML = myCurr;
-    // document.getElementById("other-current-score").innerHTML = otherPeople[imgIndex].y;
     calculateChange();
   }
 
@@ -340,19 +340,20 @@
       imgIndex++;
     }
     imgLabel.innerHTML = imgIndex;
-    // historyOther.push(historyArray[imgIndex]);
-    // historyMine.push(calculated);
-    // imgIndex = Object.size(historyArray);
-    // document.getElementById("my-current-score").innerHTML = myCurr;
-    // document.getElementById("other-current-score").innerHTML = otherPeople[imgIndex].y;
     calculateChange();
   }
 
   function calculateChange() {
+
+    var myChanceToWin = 
+    // return (Math.round(32 * (Number(myGameResult) - Number(myChanceToWin))))
+
+    console.log(imgIndex)
     if(left) {
-      myCurr =  myCurr - otherPeople[imgIndex].y * 0.05 ;
+      myCurr =  myCurr - (1 / ( 1 + Math.pow(10, (Number(myCurr) - Number(otherPeople[imgIndex].y)) / 400)))
+      // myCurr - otherPeople[imgIndex].y * 0.05 ;
     } else {
-      myCurr =  myCurr + otherPeople[imgIndex].y * 0.05 ;
+      myCurr =  myCurr + (1 / ( 1 + Math.pow(10, (Number(myCurr) - Number(otherPeople[imgIndex].y)) / 400)))
     }
 
     document.getElementById("my-current-score").innerHTML = myCurr;

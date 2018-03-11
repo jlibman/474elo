@@ -2,10 +2,12 @@ body {
   margin: 20px;
   padding-left: 100px;
   padding-right: 100px;
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
 }
 
 p {
   font-family: Roboto;
+  margin-bottom: 0;
 }
 
 h1 {
@@ -33,4 +35,8 @@ div .left {
 .center {
   text-align: center;
   float: center;
+}
+
+.tinder-info {
+  display: inline-block;
 }

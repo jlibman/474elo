@@ -7,13 +7,6 @@
   margin-right: auto;
 }
 
-.controlled-carousel {
-  margin-left: auto;
-  margin-right: auto;
-  width: 700px;
-  height: 441px;
-}
-
 h2, p {
   color: black;
 }
@@ -66,5 +59,40 @@ button {
 }
 
 img#tinder-img {
-  width: 531px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  margin: 20px;
+  padding-left: 100px;
+  padding-right: 100px;
+  font-family: Roboto, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+div .right {
+  float: right;
+  width: 50%;
+  text-align: center;
+}
+
+div .left {
+  float: left;
+  width: 50%;
+  clear: left;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.center {
+  text-align: center;
+  float: center;
 }
