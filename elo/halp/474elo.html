@@ -105,31 +105,6 @@
               <img class="aligncenter" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4b340e7d15e61ee7d90f428dcf7f4b3c049d89ff" alt="Elo rating, elo rating algorithm, elo rating for chess, facebook algorithm, facemash algorithm, Elo rating system" width="201" height="48">   
               <br/>
           </div>
-      
-          <div class = "left">
-                  <br/>
-                  <br/>
-                  <br/>
-                  <h2> Elo in Games </h2>
-                  <p> Explore how Elo works in general through our interactive visualization. Choose an Elo Score for you and your opponent between zero 
-                    and 2000, and decide if you lose, win, or tie a game. You can observe how the Elo Algorithm changes both your and your opponent's score after a match.
-                    This is the general idea behind Elo, your score goes up more if you beat an opponent with a higher Elo score than you. 
-                  </p>
-              </div>
-
-      </div>
-        <div id="chart"></div>
-        <div>
-            <form>
-                Your Elo Rating: <input class="fields" id="a" type="float"/> <br/>
-                Your Opponents Elo Rating: <input class="fields" id="b" type="float"/> <br/>
-                <input type="radio" name="outcome" id="won" checked> You Won<br>
-                <input type="radio" name="outcome" id="lost"> You Lost<br>
-                <input type="radio" name="outcome" id="draw"> It was a tie<br>
-                <input type="submit" />
-            </form>
-        </div>
-        
         <div class = "row">
           <div class = "left">
               <br/>
@@ -162,6 +137,32 @@
           </div> 
         </div>
     </div>
+
+    <div class = "row">
+    <div class = "left">
+        <br/>
+        <br/>
+        <br/>
+        <h2> Elo in Games </h2>
+        <p> Explore how Elo works in general through our interactive visualization. Choose an Elo Score for you and your opponent between zero 
+          and 2000, and decide if you lose, win, or tie a game. You can observe how the Elo Algorithm changes both your and your opponent's score after a match.
+          This is the general idea behind Elo, your score goes up more if you beat an opponent with a higher Elo score than you. 
+        </p>
+    </div>
+
+</div>
+<div id="chart"></div>
+<div>
+  <form>
+      Your Elo Rating: <input class="fields" id="a" type="float"/> <br/>
+      Your Opponents Elo Rating: <input class="fields" id="b" type="float"/> <br/>
+      <input type="radio" name="outcome" id="won" checked> You Won<br>
+      <input type="radio" name="outcome" id="lost"> You Lost<br>
+      <input type="radio" name="outcome" id="draw"> It was a tie<br>
+      <input type="submit" />
+  </form>
+</div>
+
       <!-- </div> -->
         <!--d3 code-->
         <script>
