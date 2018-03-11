@@ -46,70 +46,7 @@
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="http://d3js.org/d3.v3.min.js"></script>
     </head>
-
-    <body>
-  
-        <div class = "center"><h1> The Elo Rating System Explained</h1>
-        <h6> By: Jessica Libman, Joycie Yu, and Zhanna Voloshina</h4></div>
-
-<div class = "row">
-     <div class = "left">
-            <br/>
-            <br/>
-            <br/>
-         <h2>Background</h2>
-        <p> The algorithm was originally created by Arpad Elo as a way to accurately evaluate the skills of chess players. 
-            Essentially, the algorithm allows you to rank players based on their performance in "matches" against opponents, applicable
-            to many different contexts.
-            This rating system is now used beyond just chess tournaments.
-            It is used in professional sports tournaments, League of Legends, and Tinder. It's likely you have encountered it's use
-            without even knowing it! However, each organization has a slightly different implementation of it, but the core idea 
-            behind it remains the same.
-        </p>
-        <br/>
-        <br/>
-        <br/>
-    </div>
-
-    <div class = "right">
-        <br/>
-        <br/>
-        <br/>
-        <img src="http://www.chessmaniac.com/wp-content/uploads/2012/12/elo.jpg" alt="" width="197" height="256">   
-    </div>
-
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
-    <div class = "left">
-            <h2> How it Works</h2>
-            <p> 
-                A user's score is determined from the ratings of their opponents, and their results based on wins and losses.
-                The equation on the right demonstrates the <b>expected score</b> of both Player A and Player B if they were to
-                compete against each other.             
-                Additionally, Elo includes a mechanism to adjust scores when the results are not as expected.
-           </p>
-        </div>
-    <div class = "right">
-        <br/>
-        <br/>
-        <img class="aligncenter" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/51346e1c65f857c0025647173ae48ddac904adcb" alt="Elo rating, elo rating algorithm, elo rating for chess, facebook algorithm, facemash algorithm, Elo rating system" width="201" height="48">
-        <br/>
-        <img class="aligncenter" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4b340e7d15e61ee7d90f428dcf7f4b3c049d89ff" alt="Elo rating, elo rating algorithm, elo rating for chess, facebook algorithm, facemash algorithm, Elo rating system" width="201" height="48">   
-        <br/>
-    </div>
-
-    <div class = "left">
-            <br/>
-            <br/>
-            <br/>
-            <h2> Elo in Context </h2>
-            <p> Tinder uses the Elo Rating System to customize their application to each of their users. 
-            Each user is initially shown other users at around the same rating because
-            they believe that each of these other users are good potentially match due to comparable scores. Tinder's matching algorithm is 
-            much more complex than just Elo, and includes more factors, but is a good way to understand the basis of the Elo Rating System.
-           </p>
-        </div>
-</div><body>
+<body>
         
               <div class = "center"><h1> The Elo Rating System Explained</h1>
               <h6> By: Jessica Libman, Joycie Yu, and Zhanna Voloshina</h4></div>
@@ -164,13 +101,13 @@
                   <br/>
                   <br/>
                   <br/>
-                  <h2> Elo in Context </h2>
-                  <p> Tinder uses the Elo Rating System to customize their application to each of their users. 
-                  Each user is initially shown other users at around the same rating because
-                  they believe that each of these other users are good potentially match due to comparable scores. Tinder's matching algorithm is 
-                  much more complex than just Elo, and includes more factors, but is a good way to understand the basis of the Elo Rating System.
-                 </p>
+                  <h2> Elo in Games </h2>
+                  <p> Explore how Elo works in general through our interactive visualization. Choose an Elo Score for you and your opponent between zero 
+                    and 2000, and decide if you lose, win, or tie a game. You can observe how the Elo Algorithm changes both your and your opponent's score after a match.
+                    This is the general idea behind Elo, your score goes up more if you beat an opponent with a higher Elo score than you. 
+                  </p>
               </div>
+
       </div>
         <div id="chart"></div>
         <div>
@@ -183,10 +120,24 @@
                 <input type="submit" />
             </form>
         </div>
+        
+        <div class = "row">
+        <div class = "left">
+            <br/>
+            <br/>
+            <br/>
+            <h2> Elo in Tinder </h2>
+            <p> Tinder uses the Elo Rating System to customize their application to each of their users. 
+            Each user is initially shown other users at around the same rating because
+            they believe that each of these other users are good potentially match due to comparable scores. Tinder's matching algorithm is 
+            much more complex than just Elo, and includes more factors, but is a good way to understand the basis of the Elo Rating System.
+           </p>
+        </div>
+      </div>
         <!--d3 code-->
         <script>
 
-            var data = [{"scenario":"Your Initial Score","quantity":2000},{"scenario":"Your New Score","quantity":1800},{"scenario":"Opponent Old Score","quantity":300},{"scenario":"Opponent New Score","quantity":200}];
+            var data = [{"scenario":"Your Initial Score","quantity":1800},{"scenario":"Your New Score","quantity":2000},{"scenario":"Opponent Old Score","quantity":300},{"scenario":"Opponent New Score","quantity":200}];
             var margin = {top: 20, right: 20, bottom: 30, left: 40},
                 width = 960 - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
