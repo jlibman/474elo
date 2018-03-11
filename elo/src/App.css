@@ -51,3 +51,10 @@ div.tooltip {
   fill: transparent;
   stroke: green;
 }
+
+button {
+  -webkit-appearance: none;
+  /* background: transparent; */
+  border: 0;
+  outline:0;
+}

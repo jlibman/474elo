@@ -9,6 +9,7 @@
 
         <link rel="stylesheet" href="App.css">
         <link rel="stylesheet" href="index.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <title>Elo Rating System</title>
     </head>
 
@@ -279,11 +280,19 @@ Expected Percentage : <input name="percent" value="0" size="8" style="border: 0p
 
  </div>
   <h2>Explore tinder!</h2>
-  <button onClick="SwipesLeft()">left arrow - no</button>
+  <p>Swipe left to simulate someone else swiping "NO" on your profile. Swipe right to simulate someone else swiping "YES" on your </p>
+  <!-- <a href="#" class="arrow left " onClick="SwipesLeft()"></a> -->
+  <button class="arrow left" onClick="SwipesLeft()">
+      <i class="material-icons">keyboard_arrow_left</i>
+  </button>
   <img src='../src/img/facebook-avatar.jpg' /> 
   <p>Person: </p>
   <p id="tinder-img-label">0</p>
-  <button onClick="SwipesRight()">right arrow - yes</button>
+  <!-- <a href="#" class="arrow right" onClick="SwipesRight()"></a> -->
+
+<button class="arrow right" onClick="SwipesRight()">
+  <i class="material-icons">keyboard_arrow_right</i>
+  </button>
   <p>my current score:</p>
   <p id="my-current-score"></p>
   <p>other current score:</p>
@@ -292,37 +301,74 @@ Expected Percentage : <input name="percent" value="0" size="8" style="border: 0p
   <div id="tinder"></div>
 </div> 
 
-<!-- <script>
+ <script>
   
-  var personArray = [150,50,250,130,300,30,120,90,250,150,50,250,130,300,30,120,90,250,150,50,250,130,300,30,120,90,250];
+  const historyArray = [
+    { x: 80, y: 30 }
+  ]
+  const otherPeople = [
+        { x: 0, y: 30 },
+        { x: 50, y: 20 },
+        { x: 100, y: 40 },
+        { x: 150, y: 80 },
+        { x: 20, y: 90 },
+        { x: 50, y: 80 },
+        { x: 200, y: 95 }
+      ]
+
   var imgIndex = 0;
   var imgLabel = document.getElementById("tinder-img-label");
-  var historyOther = {};
-  var historyMine = {};
-console.log(typeof(personArray))
-  document.getElementById("other-current-score").innerHTML = personArray[imgIndex];
+  var myCurr = 100;
+  var left = true;
+  // var historyOther = [];
+  // var historyMine = [];
+  // console.log(historyArray[1].x)
+
+  document.getElementById("my-current-score").innerHTML = myCurr;
+  document.getElementById("other-current-score").innerHTML = otherPeople[imgIndex].y;
   
   function SwipesLeft() {
+    left = true;
     if(imgIndex == 0){
-      imgIndex = Object.size(personArray);
+      imgIndex = Object.size(otherPeople);
     } else {
       imgIndex--;
     }
     imgLabel.innerHTML = imgIndex;
-    historyOther.push(personArray[imgIndex]);
-    historyMine.push(calculated);
+    // historyOther.push(historyArray[imgIndex]);
+    // historyMine.push(calculated);
+    //  imgLabel.innerHTML = imgIndex;
+    // document.getElementById("my-current-score").innerHTML = myCurr;
+    // document.getElementById("other-current-score").innerHTML = otherPeople[imgIndex].y;
+    calculateChange();
   }
 
   function SwipesRight() {
-    if(imgIndex == Object.size(personArray)){
+    left = false;
+    if(imgIndex == Object.size(otherPeople)){
       imgIndex = 0;
     } else {
       imgIndex++;
     }
     imgLabel.innerHTML = imgIndex;
-    historyOther.push(personArray[imgIndex]);
-    historyMine.push(calculated);
+    // historyOther.push(historyArray[imgIndex]);
+    // historyMine.push(calculated);
+    // imgIndex = Object.size(historyArray);
+    // document.getElementById("my-current-score").innerHTML = myCurr;
+    // document.getElementById("other-current-score").innerHTML = otherPeople[imgIndex].y;
+    calculateChange();
+  }
 
+  function calculateChange() {
+    console.log(imgIndex)
+    if(left) {
+      myCurr =  myCurr - otherPeople[imgIndex].y * 0.05 ;
+    } else {
+      myCurr =  myCurr + otherPeople[imgIndex].y * 0.05 ;
+    }
+
+    document.getElementById("my-current-score").innerHTML = myCurr;
+    document.getElementById("other-current-score").innerHTML = otherPeople[imgIndex].y;
   }
 
   Object.size = function(obj) {
@@ -336,103 +382,7 @@ console.log(typeof(personArray))
 </script>
 
 
-<script>
-
-    // Set the dimensions of the canvas / graph
-    var margin = {top: 30, right: 20, bottom: 30, left: 50},
-        width = 600 - margin.left - margin.right,
-        height = 270 - margin.top - margin.bottom;
     
-    // Parse the date / time
-    var parseDate = d3.time.format("%d-%b-%y").parse;
-    var formatTime = d3.time.format("%e %B");
-    
-    // Set the ranges
-    var x = d3.time.scale().range([0, width]);
-    var y = d3.scale.linear().range([height, 0]);
-    
-    // Define the axes
-    var xAxis = d3.svg.axis().scale(x)
-        .orient("bottom").ticks(5);
-    
-    var yAxis = d3.svg.axis().scale(y)
-        .orient("left").ticks(5);
-    
-    // Define the line
-    var valueline = d3.svg.line()
-        .x(function(d) { return x(d.date); })
-        .y(function(d) { return y(d.close); });
-    
-    // Define the div for the tooltip
-    var div = d3.select("#tinder").append("div")	
-        .attr("class", "tooltip")				
-        .style("opacity", 0);
-    
-    // Adds the svg canvas
-    var svg = d3.select("#tinder")
-        .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-            .attr("transform", 
-                  "translate(" + margin.left + "," + margin.top + ")");
-    
-    // Get the data
-    var data = d3.range(11).map(function(){return Math.random()*10})
-
-    // d3.csv("data.csv", function(error, data) {
-    //   if (error) return console.warn(error);
-
-        // data.forEach(function(d) {
-        //     d.date = parseDate(d.date);
-        //     d.close = +d.close;
-        // });
-
-        console.log("data" +data)
-    
-        // Scale the range of the data
-        x.domain(d3.extent(data, function(d) { return d.date; }));
-        y.domain([0, d3.max(data, function(d) { return d.close; })]);
-    
-        // Add the valueline path.
-        svg.append("path")
-            .attr("class", "line")
-            .attr("d", valueline(data));
-    
-        // Add the scatterplot
-        svg.selectAll("dot")	
-            .data(data)			
-        .enter().append("circle")								
-            .attr("r", 5)		
-            .attr("cx", function(d) { return x(d.date); })		 
-            .attr("cy", function(d) { return y(d.close); })		
-            .on("mouseover", function(d) {		
-                div.transition()		
-                    .duration(200)		
-                    .style("opacity", .9);		
-                div	.html(formatTime(d.date) + "<br/>"  + d.close)	
-                    .style("left", (d3.event.pageX) + "px")		
-                    .style("top", (d3.event.pageY - 28) + "px");	
-                })					
-            .on("mouseout", function(d) {		
-                div.transition()		
-                    .duration(500)		
-                    .style("opacity", 0);	
-            });
-    
-        // Add the X Axis
-        svg.append("g")
-            .attr("class", "x axis")
-            .attr("transform", "translate(0," + height + ")")
-            .call(xAxis);
-    
-        // Add the Y Axis
-        svg.append("g")
-            .attr("class", "y axis")
-            .call(yAxis);
-    
-    // });
-    
-    </script> -->
+    </script>
 </body>
 </html>
